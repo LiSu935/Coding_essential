@@ -10,3 +10,15 @@ new_df = sapply(1:3, function(j) {
                            replace = FALSE), 
                     1 + 2])
 })
+
+> sample_list
+# [1] "WT_mock_1"   "WT_mock_2"   "WT_mock_3"   "WT_Bc_1"     "WT_Bc_2"    
+# [6] "ko33_mock_1" "ko33_mock_2" "ko33_mock_3" "ko33_Bc_1"   "ko33_Bc_2"  
+#[11] "ko33_Bc_3"   "WT_Bc_3"   
+
+treatment = sapply(sample_list,function(i){
+  + return(strsplit(i, "_")[[1]][[2]])})
+# WT_mock_1   WT_mock_2   WT_mock_3     WT_Bc_1     WT_Bc_2 ko33_mock_1 
+#     "mock"      "mock"      "mock"        "Bc"        "Bc"      "mock" 
+#ko33_mock_2 ko33_mock_3   ko33_Bc_1   ko33_Bc_2   ko33_Bc_3     WT_Bc_3 
+#     "mock"      "mock"        "Bc"        "Bc"        "Bc"        "Bc" 
