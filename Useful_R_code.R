@@ -22,3 +22,13 @@ treatment = sapply(sample_list,function(i){
 #     "mock"      "mock"      "mock"        "Bc"        "Bc"      "mock" 
 #ko33_mock_2 ko33_mock_3   ko33_Bc_1   ko33_Bc_2   ko33_Bc_3     WT_Bc_3 
 #     "mock"      "mock"        "Bc"        "Bc"        "Bc"        "Bc" 
+
+# ===================================================================================================================================== #
+#  read table; group_by
+# ===================================================================================================================================== #
+df_ori_clu_Anno = read.table(paste(output_dir,prefix,"_df_ori_clu_Anno",".txt",sep=""),stringsAsFactors=F, header = T, row.names=1)
+df_ori_clu_Anno = as.data.frame(df_ori_clu_Anno)
+
+df_ori_clu = df_ori_clu_Anno %>% group_by(Sample,Cluster) %>% summarise(Number = sum(Number))
+# when see the error of "Continuous value supplied to discrete scale", change the variable as factor.
+df_ori_clu$Cluster = as.factor(df_ori_clu$Cluster)
