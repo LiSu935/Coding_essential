@@ -18,3 +18,9 @@ np.sum(array1>0 , axis=0)
 #array([1, 3])
 np.sum(array1>0 , axis=1)
 # array([1, 1, 2])
+                    
+                    
+# In pandas dataframe, if one column is null, set another column to be some value (here is 'No', or set the value to be the value from another column. ex. `df['Middle']`;
+                    # if the column is not null, then set the value to be 'Yes')
+# super useful!
+merge_df['Is_TF'] = np.where(merge_df['TF_ID'].isnull(), 'No', 'Yes')
