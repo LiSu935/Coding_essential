@@ -32,3 +32,10 @@ df_ori_clu_Anno = as.data.frame(df_ori_clu_Anno)
 df_ori_clu = df_ori_clu_Anno %>% group_by(Sample,Cluster) %>% summarise(Number = sum(Number))
 # when see the error of "Continuous value supplied to discrete scale", change the variable as factor.
 df_ori_clu$Cluster = as.factor(df_ori_clu$Cluster)
+
+
+# ===================================================================================================================================== #
+# assign the missing value to another value or the minimum value in the column
+# ===================================================================================================================================== #
+my_df$my_values[is.na(my_df$my_values)] <- min(my_df$my_values, na.rm = T)
+meta_tem$anno_0519[is.na(meta_tem$anno_0519)] = 'Unknown'
