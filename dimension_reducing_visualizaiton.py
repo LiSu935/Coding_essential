@@ -102,6 +102,7 @@ similarity_matrix = np.load('your_similarity_matrix.npy')
 
 # Create the heatmap plot
 fig, ax = plt.subplots()
+# This code will create a basic heatmap plot of your similarity matrix, with a colorbar legend to show the mapping between colors and similarity values. You can customize the plot with different color schemes, labels, and other features to make it easier to interpret. For example, you can use the cmap parameter of the imshow() function to choose a different color scheme, such as cmap='viridis' or cmap='coolwarm'. You can also adjust the size and layout of the plot using the figsize parameter of the subplots() function.
 im = ax.imshow(similarity_matrix)
 
 # Add colorbar legend
