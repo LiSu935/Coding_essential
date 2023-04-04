@@ -88,3 +88,29 @@ sc.pp.scale(adata, max_value=10)
 sc.tl.umap(adata, n_components=2, n_neighbors=30, min_dist=0.1)
 
 sc.pl.umap(adata, color=['gene1', 'gene2', ...], save='umap_plot.png')
+
+
+# =============================================================== # 
+# Similarity heatmap
+# =============================================================== # 
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Load the similarity matrix
+similarity_matrix = np.load('your_similarity_matrix.npy')
+
+# Create the heatmap plot
+fig, ax = plt.subplots()
+im = ax.imshow(similarity_matrix)
+
+# Add colorbar legend
+cbar = ax.figure.colorbar(im, ax=ax)
+
+# Set plot title and axis labels
+ax.set_title("Similarity Matrix")
+ax.set_xlabel("Samples")
+ax.set_ylabel("Samples")
+
+# Show the plot
+plt.show()
