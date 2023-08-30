@@ -23,3 +23,6 @@ a
 #<10x10 sparse matrix of type '<class 'numpy.float64'>'
 #        with 4 stored elements in Compressed Sparse Column format>
 print(a)
+
+# sometimes, the adata.X stored the scaled data, while the raw counts can be access by: 
+print(adata.raw.X[:4,:4])
