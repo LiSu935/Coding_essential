@@ -26,3 +26,16 @@ print(a)
 
 # sometimes, the adata.X stored the scaled data, while the raw counts can be access by: 
 print(adata.raw.X[:4,:4])
+
+# Save Plot a name in a specified path.
+# Traindata:
+Test_INPUT_FILE = "/mnt/pixstor/dbllab/suli/Alg_development/use_geneformer/data/ms/ms_train/ms/ms_test.h5ad"
+import scanpy as sc
+test_ad = sc.read_h5ad(Test_INPUT_FILE)
+sc.set_figure_params(format="png")
+from matplotlib import pyplot as plt
+sc.settings.vector_friendly = False
+with plt.rc_context({"figure.figsize": (8, 8), "figure.dpi": (300)}):  # Use this to set figure params like size and dpi
+    sc.pl.umap(test_ad, color="celltype", show=False)
+    plt.savefig("/mnt/pixstor/dbllab/suli/Alg_development/use_geneformer/tem/test_ad.umap.png", bbox_inches="tight")
+
